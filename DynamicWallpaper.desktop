@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec="/home/yanci/Documents/Wallpaper Public/main.sh"
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[en_US]=Dynamic Wallpaper
+Name=Dynamic Wallpaper
+Comment[en_US]=
+Comment=

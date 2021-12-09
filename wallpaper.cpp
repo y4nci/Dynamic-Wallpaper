@@ -1,0 +1,102 @@
+#include "wallpaper.h"
+#include "rapidjson/document.h"
+
+using namespace rapidjson;
+
+TIME::TIME() {
+    sec = min = hour = day = mon = year = 0;
+}
+
+bool TIME::operator<(const TIME &rhs) const {
+    if (rhs.year > year) return true;
+    if (rhs.year < year) return false;
+
+    int val, rhsVal;
+
+    val = sec + 100* min + 10000 * hour + 1000000* day + 100000000* mon;
+    rhsVal = rhs.sec + 100* rhs.min + 10000 * rhs.hour + 1000000* rhs.day + 100000000* rhs.mon;
+
+    if (val < rhsVal) return true;
+    return false;
+}
+
+bool TIME::operator>(const TIME &rhs) const {
+    return !(*this < rhs);
+}
+
+void TIME::initData(){
+    sprintf(this->timeData, "%d %d %d %d %d %d", this->year, this->mon, this->day, this->hour, this->min, this->sec);
+}
+
+std::string getWeather(char* json){
+    /*
+    char* json = new char [1024];
+    std::cin >> json;
+     */
+    std::string weather;
+    int id;
+
+    Document document;
+    document.Parse(json);
+    Value& w = document["weather"][0]["main"];
+    Value& i = document["weather"][0]["id"];
+
+    id = i.GetInt();
+    weather = w.GetString();
+
+    if (weather == "Clear") return "clear";
+    else if (weather == "Drizzle" || weather == "Rain" || weather == "Thunderstorm") return "rainy";
+    else if (weather == "Snow") return "snowy";
+    else if (weather == "Mist") return "misty";
+    else if (weather == "Clouds"){
+        if (id < 803) return "partly";
+        return "cloudy";
+    }
+    return "";
+}
+
+std::string getTimeOfDay(TIME* beforeSunrise, TIME* afterSunrise, TIME* beforeSunset, TIME* afterSunset){
+    time_t timeData = time(nullptr);
+    tm* time = localtime(&timeData);
+    TIME* now = new TIME;
+
+    now->day = time->tm_mday;
+    now->hour = time->tm_hour;
+    now->min = time->tm_min;
+    now->sec = time->tm_sec;
+    now->mon = time->tm_mon;
+    now->year = time->tm_year;
+
+    if (*now < *beforeSunrise || *now > *afterSunset) return "night";
+    else if (*now < *afterSunrise) return "morning";
+    else if (*now < *beforeSunset) return "day";
+    return "evening";
+}
+
+bool thereIsAChange(const std::string& lastWeather, const std::string& lastTime, const std::string& currentWeather, const std::string& currentTime){
+    if (lastWeather != currentWeather || lastTime != currentTime) return true;
+    return false;
+}
+void init(){
+    system("python3 init.py");
+}
+
+void writeRecord(const std::string& weather, const std::string& time, TIME* beforeSunrise, TIME* afterSunrise, TIME* beforeSunset, TIME* afterSunset){
+    char command [256];
+    sprintf(command, "echo ");
+    beforeSunrise->initData();
+    beforeSunset->initData();
+    afterSunrise->initData();
+    afterSunset->initData();
+    sprintf(command, "echo %s %s %s %s %s %s > .lastrecord", weather.data(), time.data(), beforeSunrise->timeData, afterSunrise->timeData, beforeSunset->timeData, afterSunset->timeData);
+    system(command);
+}
+
+bool isNewDay(TIME * day){
+    time_t timeData = time(nullptr);
+    tm* time = localtime(&timeData);
+
+    if (time->tm_mday != day->day) return true;
+    return false;
+}
+
