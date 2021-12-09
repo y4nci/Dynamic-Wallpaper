@@ -36,7 +36,6 @@ echo "All files are configured"
 
 echo "Calling 'make'..."
 
-make clean
 make
 
 chmod +x main
