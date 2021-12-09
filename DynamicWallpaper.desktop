@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Exec="/home/yanci/Documents/Wallpaper Public/main.sh"
+Exec="{PWD}/main.sh"
 Hidden=false
 NoDisplay=false
 X-GNOME-Autostart-enabled=true
