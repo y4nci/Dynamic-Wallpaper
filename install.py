@@ -23,6 +23,8 @@ init.close()
 print("Configuring 'init.py'...")
 init_content = init_content.replace("{KEY}", KEY)
 init_content = init_content.replace("{PWD}", os.getcwd())
+init_content = init_content.replace("{LAT}", LAT)
+init_content = init_content.replace("{LON}", LON)
 
 print("Configuring 'DynamicWallpaper.desktop'...")
 desktop_content = desktop_content.replace("{PWD}", os.getcwd())
