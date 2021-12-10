@@ -12,7 +12,7 @@ sunrise_time = None
 
 while wait < 31:
     try:
-        data = manager.weather_at_coords(39.9355949391638, 32.8853557114313)
+        data = manager.weather_at_coords({LAT}, {LON})
         weather = data.weather
 
         beforeSunrise = weather.sunrise_time(timeformat='date') + datetime.timedelta(hours=1, minutes=30)
