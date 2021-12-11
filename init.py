@@ -23,10 +23,10 @@ while wait < 31:
         file = open("{PWD}/.lastrecord", "w", encoding="utf-8")
 
         file.write("null null ")
-        file.write(f"{beforeSunrise.year - 1900} {beforeSunrise.month - 1} {beforeSunrise.day} {beforeSunrise.hour} {beforeSunrise.hour} {beforeSunrise.minute} ")
-        file.write(f"{afterSunrise.year - 1900} {afterSunrise.month - 1} {afterSunrise.day} {afterSunrise.hour} {afterSunrise.hour} {afterSunrise.minute} ")
-        file.write(f"{beforeSunset.year - 1900} {beforeSunset.month - 1} {beforeSunset.day} {beforeSunset.hour} {beforeSunset.hour} {beforeSunset.minute} ")
-        file.write(f"{afterSunset.year - 1900} {afterSunset.month - 1} {afterSunset.day} {afterSunset.hour} {afterSunset.hour} {afterSunset.minute} ")
+        file.write(f"{beforeSunrise.year - 1900} {beforeSunrise.month - 1} {beforeSunrise.day} {beforeSunrise.hour} {beforeSunrise.minute} {beforeSunrise.second} ")
+        file.write(f"{afterSunrise.year - 1900} {afterSunrise.month - 1} {afterSunrise.day} {afterSunrise.hour} {afterSunrise.minute} {afterSunrise.second} ")
+        file.write(f"{beforeSunset.year - 1900} {beforeSunset.month - 1} {beforeSunset.day} {beforeSunset.hour} {beforeSunset.minute} {beforeSunset.second} ")
+        file.write(f"{afterSunset.year - 1900} {afterSunset.month - 1} {afterSunset.day} {afterSunset.hour} {afterSunset.minute} {afterSunset.second} ")
 
         print("sunset and sunrise times are fetched successfully")
         file.close()
