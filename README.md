@@ -3,6 +3,11 @@ A program which sets the background image according to the local time and weathe
 
 This program is aimed for Linux distributions, mainly the ones that utilise GNOME Shell -like Ubuntu. The weather is fetched by using API calls to OpenWeatherMap and in order to use OpenWeatherMap's API, the user needs to get an API key from OWM.
 
+Required packages:
+  - RapidJson
+  - make
+  - g++
+
 To install, simply run
 
 ```
