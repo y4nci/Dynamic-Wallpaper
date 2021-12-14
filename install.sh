@@ -29,7 +29,7 @@ rm -rf Resources
 
 echo "Configuring files..."
 
-python3 install.py
+python3 installer.py
 
 echo "All files are configured"
 
