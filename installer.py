@@ -44,7 +44,7 @@ print("Configuring 'main.sh'...")
 mainsh_content = mainsh_content.replace("{PWD}", PWD)
 
 print("Configuring 'wallpaper.sh'...")
-wallpaper_content = wallpaper_content.replace("{PWD}", )
+wallpaper_content = wallpaper_content.replace("{PWD}", PWD)
 
 main = open("main.cpp", "w", encoding="utf-8")
 main.write(main_content)
