@@ -78,7 +78,7 @@ bool thereIsAChange(const std::string& lastWeather, const std::string& lastTime,
     return false;
 }
 void init(){
-    system("python3 init.py");
+    system("python3 {PWD}/init.py");
 }
 
 void writeRecord(const std::string& weather, const std::string& time, TIME* beforeSunrise, TIME* afterSunrise, TIME* beforeSunset, TIME* afterSunset){
