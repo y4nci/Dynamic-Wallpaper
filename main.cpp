@@ -29,7 +29,7 @@ int main(){
         ifstream jsonFile ("{PWD}/.tmp");
         getline(jsonFile, jsonData);
         jsonFile.close();
-        system("rm -rf '{PWD}'.tmp");
+        system("rm -rf '{PWD}'/.tmp");
         if (jsonData.empty() || jsonData[0] != '{') {
             throw WeatherException();
         }
