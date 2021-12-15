@@ -8,7 +8,7 @@ int main(){
     string input, jsonData, lastWeather, lastTime, currentWeather, currentTime;
     char command [256];
     TIME *beforeSunrise = new TIME (), *afterSunrise = new TIME (), *beforeSunset = new TIME (), *afterSunset = new TIME ();
-    ifstream file (".lastrecord");
+    ifstream file ("{PWD}/.lastrecord");
     unsigned int randint = rand() % 2;
 
     getline(file, input);
@@ -25,11 +25,11 @@ int main(){
     currentTime = getTimeOfDay(beforeSunrise, afterSunrise, beforeSunset, afterSunset);
 
     try {
-        system("curl 'https://api.openweathermap.org/data/2.5/weather?lat={LAT}&lon={LON}&appid={KEY}' > .tmp");
-        ifstream jsonFile (".tmp");
+        system("curl 'https://api.openweathermap.org/data/2.5/weather?lat={LAT}&lon={LON}&appid={KEY}' > '{PWD}'/.tmp");
+        ifstream jsonFile ("{PWD}/.tmp");
         getline(jsonFile, jsonData);
         jsonFile.close();
-        system("rm -rf .tmp");
+        system("rm -rf '{PWD}'.tmp");
         if (jsonData.empty() || jsonData[0] != '{') {
             throw WeatherException();
         }
