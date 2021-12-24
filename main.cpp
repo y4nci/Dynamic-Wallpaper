@@ -9,7 +9,6 @@ int main(){
     char command [256];
     TIME *beforeSunrise = new TIME (), *afterSunrise = new TIME (), *beforeSunset = new TIME (), *afterSunset = new TIME ();
     ifstream file ("{PWD}/.lastrecord");
-    unsigned int randint = rand() % 2;
 
     getline(file, input);
     file.close();
@@ -47,7 +46,7 @@ int main(){
 
     if (thereIsAChange(lastWeather, lastTime, currentWeather, currentTime)){
         sprintf(command, "gsettings set org.gnome.desktop.background picture-uri 'file:///{PWD}/Wallpapers/%s%s/%d.jpg'",
-                currentWeather.data(), currentTime.data(), randint);
+                currentWeather.data(), currentTime.data(), randint());
         system(command);
         writeRecord(currentWeather, currentTime, beforeSunrise, afterSunrise, beforeSunset ,afterSunset);
     }
