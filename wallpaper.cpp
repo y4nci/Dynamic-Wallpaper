@@ -107,3 +107,13 @@ bool isNewDay(TIME * day){
     return false;
 }
 
+int randint(){
+  std::random_device os_seed;
+  const u32 seed = os_seed();
+
+  engine generator(seed);
+  std::uniform_int_distribution<u32> distribute(1, 2);
+
+  return distribute(generator);
+}
+
