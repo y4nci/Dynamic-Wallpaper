@@ -1,5 +1,12 @@
 #include "wallpaper.h"
 #include "rapidjson/document.h"
+#include <iostream>
+#include <cctype>
+#include <random>
+
+using namespace rapidjson;
+using u32 = uint_least32_t;
+using engine = std::mt19937;
 
 using namespace rapidjson;
 
