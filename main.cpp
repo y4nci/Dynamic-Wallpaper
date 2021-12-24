@@ -44,7 +44,7 @@ int main(){
 
     currentWeather = getWeather(jsonData.data());
 
-    if (thereIsAChange(lastWeather, lastTime, currentWeather, currentTime)){
+    if (thereIsAChange(lastWeather.data(), lastTime.data(), currentWeather.data(), currentTime.data())){
         sprintf(command, "gsettings set org.gnome.desktop.background picture-uri 'file:///{PWD}/Wallpapers/%s%s/%d.jpg'",
                 currentWeather.data(), currentTime.data(), randint());
         system(command);
