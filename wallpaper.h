@@ -28,7 +28,7 @@ class WeatherException : public std::exception{
 
 std::string getWeather(char* json);
 std::string getTimeOfDay(TIME*, TIME*, TIME*, TIME*);
-bool thereIsAChange(const std::string& lastWeather, const std::string& lastTime, const std::string& currentWeather, const std::string& currentTime);
+bool thereIsAChange(const char*, const char*, const char*, const char*);
 void init();
 void writeRecord(const std::string& weather, const std::string& time, TIME* beforeSunrise, TIME* afterSunrise, TIME* beforeSunset, TIME* afterSunset);
 bool isNewDay(TIME * day);
