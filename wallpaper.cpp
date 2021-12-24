@@ -80,10 +80,11 @@ std::string getTimeOfDay(TIME* beforeSunrise, TIME* afterSunrise, TIME* beforeSu
     return "evening";
 }
 
-bool thereIsAChange(const std::string& lastWeather, const std::string& lastTime, const std::string& currentWeather, const std::string& currentTime){
-    if (lastWeather != currentWeather || lastTime != currentTime) return true;
+bool thereIsAChange(const char* lastWeather, const char* lastTime, const char* currentWeather, const char* currentTime){
+    if (strcmp(lastWeather, currentWeather) || strcmp(lastTime, currentTime)) return true;
     return false;
 }
+
 void init(){
     system("python3 {PWD}/init.py");
 }
