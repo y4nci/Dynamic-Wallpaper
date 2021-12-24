@@ -32,6 +32,6 @@ bool thereIsAChange(const std::string& lastWeather, const std::string& lastTime,
 void init();
 void writeRecord(const std::string& weather, const std::string& time, TIME* beforeSunrise, TIME* afterSunrise, TIME* beforeSunset, TIME* afterSunset);
 bool isNewDay(TIME * day);
-
+int randint();
 
 #endif
