@@ -42,7 +42,9 @@ int main(){
         return 0;
     }
 
-    currentWeather = getWeather(jsonData.data());
+    char* json = const_cast<char*>(jsonData.c_str());
+
+    currentWeather = getWeather(json);
 
     if (thereIsAChange(lastWeather.data(), lastTime.data(), currentWeather.data(), currentTime.data())){
         sprintf(command, "gsettings set org.gnome.desktop.background picture-uri 'file:///{PWD}/Wallpapers/%s%s/%d.jpg'",
