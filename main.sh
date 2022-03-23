@@ -2,7 +2,7 @@
 
 cd '{PWD}'
 
-python3 '{PWD}/init.p'
+python3 '{PWD}/init.py'
 
 while :
 do
