@@ -41,7 +41,12 @@ echo "Calling 'make'..."
 
 make
 
+echo "Configuring permissions..."
+
 chmod +x main
+chmod +x main.sh
+
+echo "Files are configured."
 
 echo "Adding the program to ~/.config/autostart/..."
 
@@ -52,3 +57,6 @@ mv DynamicWallpaper.desktop ~/.config/autostart/
 echo "Program is added to autostart programs."
 
 echo "Install finished."
+
+python3 init.py
+./main
