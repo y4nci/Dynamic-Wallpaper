@@ -8,8 +8,6 @@ using namespace rapidjson;
 using u32 = uint_least32_t;
 using engine = std::mt19937;
 
-using namespace rapidjson;
-
 TIME::TIME() {
     sec = min = hour = day = mon = year = 0;
 }
@@ -54,7 +52,7 @@ std::string getWeather(char* json){
     if (weather == "Clear") return "clear";
     else if (weather == "Drizzle" || weather == "Rain" || weather == "Thunderstorm") return "rainy";
     else if (weather == "Snow") return "snowy";
-    else if (weather == "Mist" || weather == "Fog) return "misty";
+    else if (weather == "Mist" || weather == "Fog") return "misty";
     else if (weather == "Clouds"){
         if (id < 803) return "partly";
         return "cloudy";
