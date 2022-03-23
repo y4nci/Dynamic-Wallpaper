@@ -27,6 +27,10 @@ rm -rf snowy.tar.xz
 cd ..
 rm -rf Resources
 
+echo "Installing modules..."
+
+pip3 install pyowm
+
 echo "Configuring files..."
 
 python3 installer.py
@@ -40,6 +44,8 @@ make
 chmod +x main
 
 echo "Adding the program to ~/.config/autostart/..."
+
+mkdir ~/.config/autostart/
 
 mv DynamicWallpaper.desktop ~/.config/autostart/
 
