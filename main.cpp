@@ -2,6 +2,8 @@
 #include <iostream>
 #include <fstream>
 
+using namespace std;
+
 int main(){
     string input, jsonData, lastWeather, lastTime, currentWeather, currentTime;
     char command [256];
@@ -32,7 +34,7 @@ int main(){
         }
     }
     catch (exception& e) {
-        std::cout << e.what() << "\n";
+        cout << e.what() << "\n";
         delete afterSunrise;
         delete afterSunset;
         delete beforeSunset;
