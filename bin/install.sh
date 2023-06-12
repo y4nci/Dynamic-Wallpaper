@@ -24,15 +24,28 @@ rm -rf snowy.tar.xz
 
 cd ..
 
-echo "Installing modules..."
+echo "Configuring files..."
+
+mkdir temp
+
+cd src/scripts
+python3 config.py
+cd ../..
+
+echo "All files are configured"
+
+echo "Satisfying dependencies..."
 
 pip3 install pyowm
 
-echo "Configuring files..."
+mkdir modules
+cd modules
+git clone --filter=blob:none --sparse https://github.com/Tencent/rapidjson/
+cd rapidjson
+git sparse-checkout add include/rapidjson
+cd ../..
 
-python3 installer.py
-
-echo "All files are configured"
+echo "Dependencies are satisfied."
 
 echo "Calling 'make'..."
 

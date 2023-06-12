@@ -1,5 +1,5 @@
 #include "wallpaper.h"
-#include "rapidjson/document.h"
+#include "../modules/rapidjson/include/rapidjson/document.h"
 #include <iostream>
 #include <cctype>
 #include <random>
