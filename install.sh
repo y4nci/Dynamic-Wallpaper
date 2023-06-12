@@ -5,14 +5,14 @@ echo "Extracting the wallpapers..."
 
 mkdir "Wallpapers"
 
-cd Resources
+cd assets
 
-tar -xf clear.tar.xz -C ../Wallpapers
-tar -xf cloudy.tar.xz -C ../Wallpapers
-tar -xf misty.tar.xz -C ../Wallpapers
-tar -xf partly.tar.xz -C ../Wallpapers
-tar -xf rainy.tar.xz -C ../Wallpapers
-tar -xf snowy.tar.xz -C ../Wallpapers
+tar -xf clear.tar.xz
+tar -xf cloudy.tar.xz
+tar -xf misty.tar.xz
+tar -xf partly.tar.xz
+tar -xf rainy.tar.xz
+tar -xf snowy.tar.xz
 
 echo "Wallpapers are completely extracted"
 echo "Removing compressed files..."
@@ -25,7 +25,6 @@ rm -rf rainy.tar.xz
 rm -rf snowy.tar.xz
 
 cd ..
-rm -rf Resources
 
 echo "Installing modules..."
 

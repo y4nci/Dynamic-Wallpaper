@@ -47,7 +47,7 @@ int main(){
     currentWeather = getWeather(json);
 
     if (thereIsAChange(lastWeather.data(), lastTime.data(), currentWeather.data(), currentTime.data())){
-        sprintf(command, "gsettings set org.gnome.desktop.background picture-uri 'file:///{PWD}/Wallpapers/%s%s/%d.jpg'",
+        sprintf(command, "gsettings set org.gnome.desktop.background picture-uri 'file:///{PWD}/assets/%s%s/%d.jpg'",
                 currentWeather.data(), currentTime.data(), randint());
         system(command);
         writeRecord(currentWeather, currentTime, beforeSunrise, afterSunrise, beforeSunset ,afterSunset);
