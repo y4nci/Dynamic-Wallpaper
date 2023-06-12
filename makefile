@@ -2,11 +2,10 @@ CC = g++
 CFLAGS = -Wall -g
  
 LDFLAGS=
-all	:
-	$(CC)	$(CFLAGS)	main.cpp	wallpaper.cpp	-o	main	$(LDFLAGS)
+all	: main
 wallpaper:
-	$(CC)	$(CFLAGS)	wallpaper.cpp	-o	wallpaper	$(LDFLAGS)
+	$(CC)	$(CFLAGS)	src/wallpaper.cpp	-o	wallpaper	$(LDFLAGS)
 main:
-	$(CC)	$(CFLAGS)	main.cpp	-o	_main_	$(LDFLAGS)
+	$(CC)	$(CFLAGS)	src/main.cpp	src/wallpaper.cpp	-o	main	$(LDFLAGS)
 clean:
 	rm	main

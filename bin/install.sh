@@ -3,9 +3,7 @@
 echo "Initialisation started..."
 echo "Extracting the wallpapers..."
 
-mkdir "Wallpapers"
-
-cd assets
+cd ../assets
 
 tar -xf clear.tar.xz
 tar -xf cloudy.tar.xz
@@ -43,7 +41,7 @@ make
 echo "Configuring permissions..."
 
 chmod +x main
-chmod +x main.sh
+chmod +x bin/main.sh
 
 echo "Files are configured."
 
@@ -57,5 +55,5 @@ echo "Program is added to autostart programs."
 
 echo "Install finished."
 
-python3 init.py
+python3 src/scripts/init.py
 ./main

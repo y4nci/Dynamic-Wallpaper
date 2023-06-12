@@ -8,7 +8,7 @@ int main(){
     string input, jsonData, lastWeather, lastTime, currentWeather, currentTime;
     char command [256];
     TIME *beforeSunrise = new TIME (), *afterSunrise = new TIME (), *beforeSunset = new TIME (), *afterSunset = new TIME ();
-    ifstream file ("{PWD}/.lastrecord");
+    ifstream file ("{PWD}/../temp/lastRecord");
 
     getline(file, input);
     file.close();
@@ -24,11 +24,11 @@ int main(){
     currentTime = getTimeOfDay(beforeSunrise, afterSunrise, beforeSunset, afterSunset);
 
     try {
-        system("curl 'https://api.openweathermap.org/data/2.5/weather?lat={LAT}&lon={LON}&appid={KEY}' > '{PWD}'/.tmp");
-        ifstream jsonFile ("{PWD}/.tmp");
+        system("curl 'https://api.openweathermap.org/data/2.5/weather?lat={LAT}&lon={LON}&appid={KEY}' > '{PWD}'/../temp/weatherData");
+        ifstream jsonFile ("{PWD}/../temp/weatherData");
         getline(jsonFile, jsonData);
         jsonFile.close();
-        system("rm -rf '{PWD}'/.tmp");
+        system("rm -rf '{PWD}'/../temp/weatherData");
         if (jsonData.empty() || jsonData[0] != '{') {
             throw WeatherException();
         }
@@ -47,7 +47,7 @@ int main(){
     currentWeather = getWeather(json);
 
     if (thereIsAChange(lastWeather.data(), lastTime.data(), currentWeather.data(), currentTime.data())){
-        sprintf(command, "gsettings set org.gnome.desktop.background picture-uri 'file:///{PWD}/assets/%s%s/%d.jpg'",
+        sprintf(command, "gsettings set org.gnome.desktop.background picture-uri 'file:///{PWD}/../assets/%s%s/%d.jpg'",
                 currentWeather.data(), currentTime.data(), randint());
         system(command);
         writeRecord(currentWeather, currentTime, beforeSunrise, afterSunrise, beforeSunset ,afterSunset);

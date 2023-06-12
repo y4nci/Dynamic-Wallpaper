@@ -5,19 +5,19 @@ LAT = input("Please enter the latitude: ")
 LON = input("Please enter longitude: ")
 PWD = getcwd()
 
-main = open("main.cpp", "r", encoding="utf-8")
+main = open("../main.cpp", "r", encoding="utf-8")
 main_content = main.read()
 main.close()
 
-mainsh = open("main.sh", "r", encoding="utf-8")
+mainsh = open("../../main.sh", "r", encoding="utf-8")
 mainsh_content = mainsh.read()
 mainsh.close()
 
-wallpaper = open("wallpaper.cpp", "r", encoding="utf-8")
+wallpaper = open("../wallpaper.cpp", "r", encoding="utf-8")
 wallpaper_content = wallpaper.read()
 wallpaper.close()
 
-desktop = open("DynamicWallpaper.desktop", "r", encoding="utf-8")
+desktop = open("../../DynamicWallpaper.desktop", "r", encoding="utf-8")
 desktop_content = desktop.read()
 desktop.close()
 
@@ -65,3 +65,5 @@ mainsh.close()
 wallpaper = open("wallpaper.cpp", "w", encoding="utf-8")
 wallpaper.write(wallpaper_content)
 wallpaper.close()
+
+print("Done!")

@@ -94,7 +94,7 @@ void writeRecord(const std::string& weather, const std::string& time, TIME* befo
     beforeSunset->initData();
     afterSunrise->initData();
     afterSunset->initData();
-    sprintf(command, "echo %s %s %s %s %s %s > {PWD}/.lastrecord", weather.data(), time.data(), beforeSunrise->timeData, afterSunrise->timeData, beforeSunset->timeData, afterSunset->timeData);
+    sprintf(command, "echo %s %s %s %s %s %s > {PWD}/../temp/lastRecord", weather.data(), time.data(), beforeSunrise->timeData, afterSunrise->timeData, beforeSunset->timeData, afterSunset->timeData);
     system(command);
 }
 

@@ -20,7 +20,7 @@ while wait < 31:
         beforeSunset = weather.sunset_time(timeformat='date') + datetime.timedelta(hours=1, minutes=30)
         afterSunset = weather.sunset_time(timeformat='date') + datetime.timedelta(hours=4, minutes=30)
 
-        file = open("{PWD}/.lastrecord", "w", encoding="utf-8")
+        file = open("{PWD}/../../temp/lastRecord", "w", encoding="utf-8")
 
         file.write("null null ")
         file.write(f"{beforeSunrise.year - 1900} {beforeSunrise.month - 1} {beforeSunrise.day} {beforeSunrise.hour} {beforeSunrise.minute} {beforeSunrise.second} ")
