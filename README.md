@@ -12,7 +12,7 @@ To install, simply run
 
 ```
 git clone https://github.com/y4nci/Dynamic-Wallpaper
-cd Dynamic-Wallpaper
+cd Dynamic-Wallpaper/bin
 chmod +x install.sh
 ./install.sh
 ```

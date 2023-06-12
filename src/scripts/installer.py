@@ -9,7 +9,7 @@ main = open("../main.cpp", "r", encoding="utf-8")
 main_content = main.read()
 main.close()
 
-mainsh = open("../../main.sh", "r", encoding="utf-8")
+mainsh = open("../../bin/main.sh", "r", encoding="utf-8")
 mainsh_content = mainsh.read()
 mainsh.close()
 
@@ -46,7 +46,7 @@ mainsh_content = mainsh_content.replace("{PWD}", PWD)
 print("Configuring 'wallpaper.sh'...")
 wallpaper_content = wallpaper_content.replace("{PWD}", PWD)
 
-main = open("main.cpp", "w", encoding="utf-8")
+main = open("../main.cpp", "w", encoding="utf-8")
 main.write(main_content)
 main.close()
 
@@ -54,15 +54,15 @@ init = open("init.py", "w", encoding="utf-8")
 init.write(init_content)
 init.close()
 
-desktop = open("DynamicWallpaper.desktop", "w", encoding="utf-8")
+desktop = open("../../DynamicWallpaper.desktop", "w", encoding="utf-8")
 desktop.write(desktop_content)
 desktop.close()
 
-mainsh = open("main.sh", "w", encoding="utf-8")
+mainsh = open("../../bin/main.sh", "w", encoding="utf-8")
 mainsh.write(mainsh_content)
 mainsh.close()
 
-wallpaper = open("wallpaper.cpp", "w", encoding="utf-8")
+wallpaper = open("../wallpaper.cpp", "w", encoding="utf-8")
 wallpaper.write(wallpaper_content)
 wallpaper.close()
 
