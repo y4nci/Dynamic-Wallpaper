@@ -4,6 +4,13 @@
 #include <string>
 #include <ctime>
 
+#define SEC_PER_MIN 60
+#define SEC_PER_HOUR 3600
+#define SEC_PER_DAY 86400
+#define SEC_PER_MON 2592000
+
+#define CLOUDY_THRESHOLD 803
+
 class TIME{
 public:
     TIME();

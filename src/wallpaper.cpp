@@ -18,8 +18,8 @@ bool TIME::operator<(const TIME &rhs) const {
 
     int val, rhsVal;
 
-    val = sec + 100* min + 10000 * hour + 1000000* day + 100000000* mon;
-    rhsVal = rhs.sec + 100* rhs.min + 10000 * rhs.hour + 1000000* rhs.day + 100000000* rhs.mon;
+    val = mon * SEC_PER_MON + day * SEC_PER_DAY + hour * SEC_PER_HOUR + min * SEC_PER_MIN + sec;
+    rhsVal = rhs.mon * SEC_PER_MON + rhs.day * SEC_PER_DAY + rhs.hour * SEC_PER_HOUR + rhs.min * SEC_PER_MIN + rhs.sec;
 
     if (val < rhsVal) return true;
     return false;
@@ -54,7 +54,7 @@ std::string getWeather(char* json){
     else if (weather == "Snow") return "snowy";
     else if (weather == "Mist" || weather == "Fog") return "misty";
     else if (weather == "Clouds"){
-        if (id < 803) return "partly";
+        if (id < CLOUDY_THRESHOLD) return "partly";
         return "cloudy";
     }
     return "";
