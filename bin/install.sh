@@ -67,7 +67,6 @@ mv DynamicWallpaper.desktop ~/.config/autostart/
 
 echo "Program is added to autostart programs."
 
-echo "Install finished."
+echo "Install finished. Please restart your computer to see the changes."
 
 python3 src/scripts/init.py
-bin/dynamic-wallpaper
