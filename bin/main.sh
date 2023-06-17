@@ -6,6 +6,6 @@ python3 '{PWD}/src/scripts/init.py'
 
 while :
 do
-	'{PWD}/main'
+	'{PWD}/bin/dynamic-wallpaper'
 	sleep 60
 done

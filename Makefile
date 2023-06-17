@@ -3,9 +3,7 @@ CFLAGS = -Wall -g
  
 LDFLAGS=
 all	: main
-wallpaper:
-	$(CC)	$(CFLAGS)	src/wallpaper.cpp	-o	wallpaper	$(LDFLAGS)
 main:
-	$(CC)	$(CFLAGS)	src/main.cpp	src/wallpaper.cpp	-o	main	$(LDFLAGS)
+	$(CC)	$(CFLAGS)	src/main.cpp	src/wallpaper.cpp	-o	bin/dynamic-wallpaper	$(LDFLAGS)
 clean:
 	rm	main

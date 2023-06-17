@@ -70,4 +70,4 @@ echo "Program is added to autostart programs."
 echo "Install finished."
 
 python3 src/scripts/init.py
-./main
+bin/dynamic-wallpaper
