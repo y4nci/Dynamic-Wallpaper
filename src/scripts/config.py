@@ -66,4 +66,6 @@ wallpaper = open("../wallpaper.cpp", "w", encoding="utf-8")
 wallpaper.write(wallpaper_content)
 wallpaper.close()
 
+open("../../temp/weatherData", "w", encoding="utf-8").close()
+
 print("Done!")

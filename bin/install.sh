@@ -54,7 +54,7 @@ make
 
 echo "Configuring permissions..."
 
-chmod +x main
+chmod +x bin/dynamic-wallpaper
 chmod +x bin/main.sh
 
 echo "Files are configured."
