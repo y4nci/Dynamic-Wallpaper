@@ -63,7 +63,7 @@ echo "Adding the program to ~/.config/autostart/..."
 
 mkdir ~/.config/autostart/
 
-mv DynamicWallpaper.desktop ~/.config/autostart/
+cp DynamicWallpaper.desktop ~/.config/autostart/
 
 echo "Program is added to autostart programs."
 
