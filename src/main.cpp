@@ -2,13 +2,11 @@
 #include <iostream>
 #include <fstream>
 
-using namespace std;
-
 int main(){
-    string input, jsonData, lastWeather, lastTime, currentWeather, currentTime;
+    std::string input, jsonData, lastWeather, lastTime, currentWeather, currentTime;
     char command [256];
     TIME *beforeSunrise = new TIME (), *afterSunrise = new TIME (), *beforeSunset = new TIME (), *afterSunset = new TIME ();
-    ifstream file ("{PWD}/../temp/lastRecord");
+    std::ifstream file ("{PWD}/../temp/lastRecord");
 
     getline(file, input);
     file.close();
@@ -25,7 +23,7 @@ int main(){
 
     try {
         system("curl 'https://api.openweathermap.org/data/2.5/weather?lat={LAT}&lon={LON}&appid={KEY}' > '{PWD}'/../temp/weatherData");
-        ifstream jsonFile ("{PWD}/../temp/weatherData");
+        std::ifstream jsonFile ("{PWD}/../temp/weatherData");
         getline(jsonFile, jsonData);
         jsonFile.close();
         system("rm -rf '{PWD}'/../temp/weatherData");
@@ -33,8 +31,8 @@ int main(){
             throw WeatherException();
         }
     }
-    catch (exception& e) {
-        cout << e.what() << "\n";
+    catch (std::exception& e) {
+        std::cout << e.what() << "\n";
         delete afterSunrise;
         delete afterSunset;
         delete beforeSunset;
