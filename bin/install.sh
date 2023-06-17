@@ -40,12 +40,13 @@ pip3 install pyowm
 
 mkdir modules
 cd modules
-git clone --filter=blob:none --sparse https://github.com/Tencent/rapidjson/
+git clone https://github.com/Tencent/rapidjson/
 cd rapidjson
-git sparse-checkout add include/rapidjson
-cd ../..
+git sparse-checkout set include/rapidjson
 
 echo "Dependencies are satisfied."
+
+cd ../..
 
 echo "Calling 'make'..."
 
