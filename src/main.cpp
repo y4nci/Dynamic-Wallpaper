@@ -6,7 +6,7 @@ int main(){
     std::string input, jsonData, lastWeather, lastTime, currentWeather, currentTime;
     char command [256];
     TIME *beforeSunrise = new TIME (), *afterSunrise = new TIME (), *beforeSunset = new TIME (), *afterSunset = new TIME ();
-    std::ifstream file ("{PWD}/../temp/lastRecord");
+    std::ifstream file ("{PWD}/../../temp/lastRecord");
 
     getline(file, input);
     file.close();
@@ -22,7 +22,7 @@ int main(){
     currentTime = getTimeOfDay(beforeSunrise, afterSunrise, beforeSunset, afterSunset);
 
     try {
-        system("curl 'https://api.openweathermap.org/data/2.5/weather?lat={LAT}&lon={LON}&appid={KEY}' > '{PWD}'/../temp/weatherData");
+        system("curl 'https://api.openweathermap.org/data/2.5/weather?lat={LAT}&lon={LON}&appid={KEY}' > '{PWD}'/../../temp/weatherData");
         std::ifstream jsonFile ("{PWD}/../temp/weatherData");
         getline(jsonFile, jsonData);
         jsonFile.close();
