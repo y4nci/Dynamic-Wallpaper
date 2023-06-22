@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Exec="{PWD}/main.sh"
+Exec="{PWD}/../../bin/main.sh"
 Hidden=false
 NoDisplay=false
 X-GNOME-Autostart-enabled=true
