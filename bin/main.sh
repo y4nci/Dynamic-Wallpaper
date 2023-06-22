@@ -2,10 +2,10 @@
 
 cd '{PWD}'
 
-python3 '{PWD}/src/scripts/init.py'
+python3 '{PWD}/init.py'
 
 while :
 do
-	'{PWD}/bin/dynamic-wallpaper'
+	'{PWD}/../../bin/dynamic-wallpaper'
 	sleep 60
 done
