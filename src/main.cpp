@@ -23,10 +23,10 @@ int main(){
 
     try {
         system("curl 'https://api.openweathermap.org/data/2.5/weather?lat={LAT}&lon={LON}&appid={KEY}' > '{PWD}'/../../temp/weatherData");
-        std::ifstream jsonFile ("{PWD}/../temp/weatherData");
+        std::ifstream jsonFile ("{PWD}/../../temp/weatherData");
         getline(jsonFile, jsonData);
         jsonFile.close();
-        system("rm -rf '{PWD}'/../temp/weatherData");
+        system("rm -rf '{PWD}'/../../temp/weatherData");
         if (jsonData.empty() || jsonData[0] != '{') {
             throw WeatherException();
         }
